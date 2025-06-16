@@ -1,0 +1,439 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.head {
+    width: 99vw;
+    height: 700px;
+    margin: auto;
+    /* background-color: rgba(0, 85, 255, 0.767); */
+}
+
+nav {
+    width: 100%;
+    /* height: 11%; */
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(4, 125, 119);
+    padding: 15px 20px;
+    position: fixed;
+    z-index: 10;
+}
+
+nav p {
+    color: white;
+    font-size: 35px;
+    font-weight: 600;
+}
+
+nav i {
+    font-size: 39px;
+    display: none;
+    color: black;
+
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* height: 100%; */
+    /* gap: 20px; */
+}
+
+nav ul li {
+    list-style: none;
+    padding: 5px 8px;
+    text-wrap: nowrap;
+    text-align: justify;
+    border-radius: 5px;
+    transition: box-shadow .7s;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    padding: 4px 6px;
+}
+
+nav ul li:hover {
+    box-shadow: 0px 0px 5px white;
+}
+
+.intro {
+    width: 100%;
+    min-height: 88.5%;
+    position: relative;
+}
+
+.intro .images {
+    width: 100%;
+    height: 100%;
+    /* background-color: aqua; */
+    /* Below 2 propety to make element down-side the introduction text */
+    position: absolute;
+    margin-top: 59px;
+    /* z-index: 9; */
+}
+
+.intro .images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.intro .intro-description {
+    width: 100%;
+    height: 100%;
+    font-size: 55px;
+    /* Below 2 propety to make element over the background image */
+    position: absolute;
+    z-index: 1;
+    text-align: center;
+    padding-top: 150px;
+    color: white;
+    font-weight: 600;
+    text-shadow: 5px 5px 3px black;
+}
+
+#contact-page {
+    padding: 10px 60px;
+    background-color: aliceblue;
+}
+
+#contact-page h1 {
+    font-size: 90px;
+}
+
+.contact-medium {
+    width: 85%;
+    /* border: 2px solid red; */
+    height: 600px;
+    margin: auto;
+    padding: 30px 25px;
+}
+
+.contact-medium h2 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.contact-medium .list {
+    margin: 30px 0;
+    height: 450px;
+    width: 100%;
+    padding: 20px 40px;
+    /* border: 2px solid red; */
+}
+
+.contact-medium .list ul {
+    /* background-color: aliceblue; */
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.contact-medium .list ul li {
+    font-size: 30px;
+}
+
+.sec2 {
+    width: 99vw;
+    height: 700px;
+    margin: auto;
+    display: flex;
+    position: relative;
+    padding: 15px 13px;
+    background-color: aliceblue;
+}
+
+video {
+    width: 50%;
+    height: 100%;
+    object-fit: fill;
+    border-radius: 20px;
+}
+
+#subtext {
+    height: 100%;
+    width: 50%;
+    font-size: 35px;
+    color: rgb(53, 53, 52);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+    /* flex-wrap: wrap; */
+}
+
+.sec3 {
+    width: 99vw;
+    height: 700px;
+    margin: auto;
+    position: relative;
+    padding: 3px 4px;
+}
+
+.cards-container {
+    flex-wrap: wrap;
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    margin-top: 15px;
+
+}
+
+.cards {
+    width: 300px;
+    height: 400px;
+    border: 2px solid white;
+    background-color: rgb(12, 12, 11);
+    padding: 30px 25px;
+    border-radius: 20px;
+    color: wheat;
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+
+}
+
+.cards h1 {
+    margin: 15px 0;
+    font-size: 25px;
+}
+
+.cards p {
+    margin: 3px 5px;
+    font-size: 20px;
+}
+
+.cards ul {
+    margin: 15px 0;
+    padding: 15px;
+}
+
+.cards ul li {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.help-us {
+    width: 100%;
+    min-width: 300px;
+    margin: auto;
+    background-color: antiquewhite;
+    padding: 12px 20px;
+}
+
+.help-us h1 {
+    /* background-color: rgb(232, 150, 44); */
+    margin: 12px 30px;
+    font-size: 45px;
+}
+
+.help-us p {
+    /* background-color: rgb(143, 139, 135); */
+    padding: 30px 25px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.help-us button {
+    display: block;
+    font-size: 28px;
+    padding: 12px 9px;
+    margin: auto;
+    text-align: center;
+    background-color: rgb(10, 58, 58);
+    font-weight: 600;
+    border-radius: 10px;
+    transition: background-color 0.7s;
+}
+
+.help-us button a {
+    color: white;
+    text-decoration: none;
+
+}
+
+.help-us button:hover {
+    background-color: rgb(8, 130, 8);
+    /* box-shadow: 0px 0px 10px blue; */
+}
+
+footer {
+    padding: 15px 0;
+    background-color: #4d4c4a;
+    color: beige;
+    font-size: 18px;
+    text-align: center;
+}
+
+@media (max-width:1200px) {
+    nav {
+        width: 100%;
+        height: 14%;
+        margin: 0 auto;
+        /* display: flex;
+        align-items: center;
+        justify-content: space-between; */
+        /* text-align: center; */
+        /* background-color: green; */
+        padding: 15px 20px;
+        padding-top: 30px;
+        position: relative;
+    }
+
+
+    nav .menu {
+        height: 100vh;
+        width: 55vw;
+        padding: 18px 12px;
+        position: fixed;
+        display: block;
+        z-index: 100;
+        left: 100%;
+        top: 0;
+        /* set below property to make transition in js */
+        /* transform: translate(-230%,0); */
+        transition: 1s;
+        background-color: rgb(2, 2, 2);
+    }
+
+    nav .menu .ri-close-circle-fill {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    nav .open {
+        display: block;
+        color: white;
+
+    }
+
+    nav .close {
+        display: block;
+        color: white;
+
+    }
+
+    nav ul {
+        display: flex;
+        gap: 35px;
+        flex-direction: column;
+    }
+
+    nav ul li {
+        text-wrap: wrap;
+
+    }
+
+    nav ul li a {
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        color: #ffffff;
+
+    }
+
+    .intro {
+        height: 94%;
+        overflow: hidden;
+    }
+
+    .intro .images {
+        width: 100%;
+        height: 100%;
+        /* background-color: aqua; */
+        /* Below 2 propety to make element down-side the introduction text */
+        position: absolute;
+        margin-top: 0px;
+        /* z-index: 9; */
+    }
+
+    .intro .intro-description {
+        font-size: 30px;
+    }
+
+    #contact-page {
+        padding: 50px 30px;
+    }
+
+    #contact-page h1 {
+        /* text-wrap: nowrap; */
+        font-size: 60px;
+    }
+
+    .contact-medium {
+        width: 100%;
+        border: 2px solid red;
+        height: 90%;
+        margin: auto;
+    }
+
+    .contact-medium .list {
+        padding: 10px 0;
+        /* border: 2px solid red; */
+        overflow-x: auto;
+    }
+
+    .contact-medium .list ul li {
+        font-size: 20px;
+        /* text-wrap: nowrap; */
+        color: white;
+    }
+
+    .sec2 {
+        width: 99vw;
+        height: 900px;
+        margin: auto;
+        display: block;
+        padding: 3px 4px;
+        background-color: aliceblue;
+    }
+
+    .sec2 video {
+        width: 95%;
+        height: 60%;
+        display: block;
+        margin: auto;
+        object-fit: fill;
+    }
+
+    #subtext {
+        width: 100%;
+        height: 40%;
+        font-size: 30px;
+        /* color: rgb(202, 197, 191); */
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .sec3 {
+        width: 100%;
+        min-height: 1250px;
+        margin: auto;
+        position: relative;
+        padding: 3px 4px;
+    }
+}

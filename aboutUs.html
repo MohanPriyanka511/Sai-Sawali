@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About US</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- AOS Animation CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- <script src="script.js"></script> -->
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+
+            background-color: whitesmoke;
+        }
+
+        /* nav */
+
+        nav {
+            width: 100%;
+            /* height: 11%; */
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgb(2, 122, 170);
+            padding: 15px 20px;
+            position: fixed;
+            z-index: 10;
+        }
+
+        nav p {
+            color: white;
+            font-size: 35px;
+            font-weight: 600;
+        }
+
+        nav i {
+            font-size: 39px;
+            display: none;
+            color: black;
+
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* height: 100%; */
+            /* gap: 20px; */
+        }
+
+        nav ul li {
+            list-style: none;
+            padding: 5px 8px;
+            text-wrap: nowrap;
+            text-align: justify;
+            border-radius: 5px;
+            transition: box-shadow .7s;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 22px;
+            padding: 4px 6px;
+        }
+
+        nav ul li:hover {
+            box-shadow: 0px 0px 5px white;
+        }
+
+        section:nth-of-type(1) {
+            padding: 30px 20px;
+            padding-top: 100px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            /* background-color: rgb(194, 197, 197); */
+            background-color: rgb(255, 255, 255);
+            color: black;
+            margin-bottom: 20px;
+        }
+
+        #head-title {
+            font-size: 50px;
+            margin: 0;
+        }
+
+        section h3 {
+            font-size: 25px;
+            text-align: center;
+            /* background-color: aquamarine; */
+            margin: 0;
+            width: 75%;
+        }
+
+        section div {
+            background-color: rgba(255, 228, 196, 0.521);
+            box-shadow: 0 0 5px black;
+            border-radius: 20px;
+            width: 85%;
+            margin: auto;
+            padding: 15px 30px;
+            margin-bottom: 20px;
+        }
+
+        section div h1 {
+            font-size: 35px;
+            margin-left: 19px;
+            text-decoration: underline;
+        }
+
+        section div p {
+            font-size: 30px;
+            text-align: justify;
+        }
+
+        section div li {
+            font-size: 25px;
+            text-align: justify;
+            margin-bottom: 9px;
+        }
+
+        button {
+            display: block;
+            font-size: 28px;
+            padding: 12px 9px;
+            margin: 12px auto;
+            text-align: center;
+            background-color: rgb(10, 58, 58);
+            font-weight: 600;
+            border-radius: 10px;
+            transition: background-color 0.7s;
+        }
+
+        button a {
+            color: white;
+            text-decoration: none;
+        }
+
+        button:hover {
+            background-color: rgb(8, 130, 8);
+            /* box-shadow: 0px 0px 10px blue; */
+        }
+
+        @media (max-width:1200px) {
+            section:nth-of-type(2) {
+                padding: 15px 20px;
+                margin-bottom: 20px;
+                display: block;
+
+            }
+
+            #head-title {
+                font-size: 50px;
+                margin: 0;
+                text-align: center;
+            }
+
+            section h3 {
+                font-size: 25px;
+                text-align: center;
+                /* background-color: aquamarine; */
+                margin: 0;
+                width: 100%;
+            }
+
+            /* nav */
+            nav {
+                width: 100%;
+                height: 11%;
+                margin: 0 auto;
+                /* display: flex;
+                align-items: center;
+                justify-content: space-between; */
+                /* text-align: center; */
+                /* background-color: green; */
+                padding: 15px 12px;
+                position: relative;
+            }
+
+
+            nav .menu {
+                height: 100vh;
+                width: 55vw;
+                padding: 18px 12px;
+                position: fixed;
+                display: block;
+                z-index: 100;
+                left: 100%;
+                top: 0;
+                /* set below property to make transition in js */
+                /* transform: translate(-230%,0); */
+                transition: 1s;
+                background-color: rgb(2, 2, 2);
+            }
+
+            nav .menur .ri-close-circle-fill {
+                display: block;
+                margin-bottom: 15px;
+            }
+
+            nav .open {
+                display: block;
+                color: white;
+
+            }
+
+            nav .close {
+                display: block;
+                color: white;
+
+            }
+
+            nav ul {
+                display: flex;
+                gap: 35px;
+                flex-direction: column;
+            }
+
+            nav ul li {
+                text-wrap: wrap;
+
+            }
+
+            nav ul li a {
+                font-size: 15px;
+                letter-spacing: 0.5px;
+                color: #ffffff;
+
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <p>Sai Sawali Baal Pariwaar</p>
+        <i class="ri-menu-2-fill open"></i>
+        <div class="menu">
+            <i class="ri-close-circle-fill close"></i>
+            <ul>
+                <li><a href="./index.html">HOME</a></li>
+                <li><a href="./aboutUs.html">ABOUT US</a></li>
+                <li><a href="./contactUs.html">CONTACT US</a></li>
+                <li><a href="./helpUs.html">EMPOWER THE FUTURE</a></li>
+                <li><a href="./gallary.html">GALLERY</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <section>
+        <h1 id="head-title">About Us</h1>
+        <h3>Our journey began with a simple dream—to create a safe and loving space for children who had none. Today,
+            Sai Sawali Baal Pariwar is that home, where every child is welcomed with open arms, and we work each day to
+            see them flourish. Together, we can give them the future they deserve."</h3>
+    </section>
+    <section>
+        <div class="story" data-aos="zoom-in-down">
+            <h1>Our Story</h1>
+            <p>Sai Sawali Baal Pariwar was founded with a simple yet powerful vision: to give every child a safe,
+                nurturing environment where they can grow, learn, and dream big. What began in [Year Founded] as a small
+                effort to provide shelter and support to orphaned children has grown into a loving home where each child
+                receives the care, education, and encouragement they need to build a bright future.</p>
+        </div>
+        <div class="mission" data-aos="zoom-in-up">
+            <h1>Our Mission</h1>
+            <p>At Sai Sawali Baal Pariwar, our mission is to create a nurturing family for children in need. We are
+                dedicated to providing each child with a safe, loving space to grow, an education to empower them, and
+                the emotional support needed to help them overcome life’s challenges. Every child deserves a place to
+                call home, and we are committed to being that family.</p>
+
+        </div>
+        <div class="vision" data-aos="fade-left">
+            <h1>Our Vision</h1>
+            <p>We envision a world where every child has the opportunity to live with dignity, love, and hope. Through
+                our efforts, we aim to create a society where all children have the chance to grow into healthy,
+                educated, and empowered adults who can make meaningful contributions to their communities.</p>
+
+        </div>
+        <div class="value" data-aos="fade-right">
+            <h1>Our Values</h1>
+            <ul>
+                <li>Compassion: We believe in showing every child kindness, understanding, and the respect they deserve.
+                </li>
+                <li>Empowerment: Our goal is to provide not only basic needs but also the tools and education each child
+                    requires to thrive.</li>
+                <li>Transparency: We are dedicated to operating with honesty and openness in everything we do, ensuring
+                    that our supporters know exactly how their contributions make a difference.</li>
+                <li>Community: We recognize the power of collective efforts and work alongside our community to create a
+                    nurturing environment for our children.</li>
+            </ul>
+        </div>
+        <div class="meet-u" data-aos="fade-left">
+            <h1>Meet Our Team</h1>
+            <p>Behind Sai Sawali Baal Pariwar is a passionate team of caregivers, teachers, and volunteers who are
+                devoted to making a positive impact in each child’s life. Together, we work every day to ensure that our
+                children feel loved, supported, and inspired to pursue their dreams.</p>
+
+        </div>
+        <div class="join-us" data-aos="zoom-in-up">
+            <h1>Join Us</h1>
+            <p>Sai Sawali Baal Pariwar believes that change happens when we come together as a community. If you share
+                our vision and would like to support our work, there are many ways to get involved. Together, we can
+                continue to empower these children, helping them build the bright futures they deserve.</p>
+            <button><a href="./helpUs.html">Join Our Mission</a></button>
+        </div>
+
+    </section>
+    <script>
+        let menuopen = document.querySelector(".open");
+        let menuclose = document.querySelector(".close");
+
+        let menubar = document.querySelector(".menu");
+        menuopen.addEventListener("click", () => {
+            menubar.style.transform = "translate(-100%,0%)";
+
+        })
+
+        menuclose.addEventListener("click", () => {
+            menubar.style.transform = "translate(0%,0%)";
+
+        })
+    </script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        offset: 300;
+        delay: 0.5;
+    </script>
+</body>
+
+</html>
