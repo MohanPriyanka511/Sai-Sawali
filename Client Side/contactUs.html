@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+    <!-- AOS Animation CDN -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            /* font-family: Verdana, Geneva, Tahoma, sans-serif; */
+        }
+
+        body {
+            /* background-color: rgb(12, 22, 43); */
+            background-color: rgb(194, 200, 200);
+            color: rgb(28, 27, 27);
+
+        }
+
+        html {
+
+            scroll-behavior: smooth;
+        }
+
+        .head {
+            background-color: azure;
+            /* padding: 20px 0; */
+        }
+
+        .head h1 {
+            color: rgb(41, 45, 45);
+            font-size: 2.5rem;
+            padding: 20px 30px;
+            text-decoration: underline;
+        }
+
+        /* nav bar */
+
+        .close {
+            /* display: block; */
+            margin-left: 75%;
+            margin-top: 12px;
+        }
+
+        .head p {
+            color: rgb(37, 34, 34);
+            padding: 10px 25px;
+            padding-top: 120px;
+            font-size: 28px;
+            text-align: center;
+            letter-spacing: 0.8px;
+        }
+
+        nav {
+            width: 100%;
+            /* height: 11%; */
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgb(2, 122, 170);
+            padding: 15px 20px;
+            position: fixed;
+            z-index: 10;
+        }
+
+        nav p {
+            color: white;
+            font-size: 35px;
+            font-weight: 600;
+        }
+
+        nav i {
+            font-size: 39px;
+            display: none;
+            color: black;
+
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* height: 100%; */
+            /* gap: 20px; */
+        }
+
+        nav ul li {
+            list-style: none;
+            padding: 5px 8px;
+            text-wrap: nowrap;
+            text-align: justify;
+            border-radius: 5px;
+            transition: box-shadow .7s;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 22px;
+            padding: 4px 6px;
+        }
+
+        nav ul li:hover {
+            box-shadow: 0px 0px 5px white;
+        }
+
+        .con-medium {
+            /* border: 2px solid red; */
+            width: 100%;
+            min-height: 55vh;
+            padding: 30px 29px;
+            /* filter: invert(100%); */
+
+        }
+
+        h3 {
+            font-size: 60px;
+            color: hsl(0, 0%, 100%);
+            /* text-align: center; */
+            /* background-color: aqua; */
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 15px black;
+            margin-bottom: 30px;
+        }
+
+        /* General Inquiries */
+        .general-inquiries {
+            background-color: white;
+            box-shadow: 0 0 5px black;
+            width: 75%;
+            margin: 12px auto;
+            border-radius: 20px;
+            border: 2px solid rgb(44, 2, 2);
+        }
+
+        .phone-email {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .phone-email div {
+            text-wrap: nowrap;
+        }
+
+        .phone-email p,
+        .phone-email ul {
+            font-size: 30px;
+            color: black;
+
+        }
+
+        .phone-email ul {
+            margin: 10px 75px;
+        }
+
+        .phone-email ul li {
+            margin-bottom: 12px;
+        }
+
+        /* Address Section */
+        .visit-address {
+            background-color: rgb(154, 184, 184);
+        }
+
+        .add-map {
+            /* border: 2px solid greenyellow; */
+            width: 100%;
+            height: 450px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .add-map div {
+            width: 49.5%;
+            height: 100%;
+            /* border: 2px solid palevioletred; */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .add-map p {
+            font-size: 25px;
+            text-align: justify;
+            padding: 8px 0;
+            padding: 20px;
+        }
+
+        .add-map div iframe {
+            width: 100%;
+            height: 100%;
+            /* use filter propert to make black back-ground */
+            /* filter: invert(100%); */
+            border-radius: 10px;
+        }
+
+        /* Social Media */
+        .social-medium {
+            background-color: rgba(164, 183, 177, 0.676);
+            width: 80%;
+            margin: 9px auto;
+            border: 2px solid green;
+            border-radius: 30px;
+
+        }
+
+        .social-media-info {
+            display: flex;
+            justify-content: space-between;
+            /* border: 2px solid red; */
+            min-height: 200px;
+        }
+
+        .social-media-info div {
+            width: 49%;
+            /* background-color: rgba(0, 255, 255, 0.29); */
+            /* border: 2px solid forestgreen; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .social-media-info div p {
+            font-size: 28px;
+            text-align: justify;
+            padding: 15px 12px;
+            color: rgb(43, 43, 43);
+        }
+
+        .social-media-info .iftplatform {
+            display: flex;
+            flex-direction: column;
+            /* align-items: center;     */
+            /* justify-content: space-around; */
+
+        }
+
+        .social-media-info .iftplatform .sm-option {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 30px;
+            border-radius: 30px;
+            /* border: 2px solid red; */
+            width: 50%;
+            position: relative;
+
+        }
+
+        .sm-option img {
+            width: 55px;
+            height: 55px;
+            border: 1px solid rgb(0, 255, 255);
+            /* background-color: rgba(250, 235, 215, 0.331); */
+            border-radius: 50%;
+            padding: 2px;
+            transition: 1.5s;
+            cursor: pointer;
+            object-fit: contain;
+            position: absolute;
+            z-index: 1;
+
+        }
+
+        .sm-option img:hover {
+            border: 2px solid rgb(102, 255, 0);
+            box-shadow: 0 0 30px rgb(0, 21, 255);
+        }
+
+        .sm-option img:hover+p {
+            transform: translateX(60px);
+            background-color: rgba(255, 255, 255, 0.443);
+            opacity: 1;
+        }
+
+        .iftplatform .sm-option p {
+            opacity: 0;
+            width: 150px;
+            transition: 2s;
+            border-radius: 30px;
+            cursor: pointer;
+            text-align: center;
+            transition: 1s;
+            color: red;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background-color: rgba(240, 238, 239, 0.49)
+        }
+
+        .contact-form p {
+            text-align: center;
+            font-size: 30px;
+            color: black;
+        }
+
+        .contact-form .form {
+            border: 2px solid rgb(31, 30, 30)(48, 46, 46);
+            margin: 40px auto;
+            width: 800px;
+            /* width: 700px; */
+            padding: 25px 10px;
+            border-radius: 20px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0px 0px 20px rgb(32, 35, 36);
+
+        }
+
+        .contact-form .form .row {
+            border: 2px solid rgb(0, 0, 0);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 19px;
+            border-radius: 20px;
+            padding: 15px;
+
+        }
+
+        .contact-form .form .row div:nth-of-type(1) {
+            width: 20%;
+            /* background-color: black; */
+        }
+
+        .contact-form .form .row div:nth-of-type(2) {
+            width: 70%;
+            /* background-color: black; */
+        }
+
+        .contact-form .form .row input,
+        label {
+            height: 100%;
+            width: 100%;
+            font-size: 28px;
+            border-radius: 10px;
+            padding: 10px 15px;
+            color: black;
+            background-color: inherit;
+            border: none;
+        }
+
+        .contact-form .form .btn {
+            /* border: 2px solid rgb(11, 219, 32); */
+            text-align: center
+        }
+
+        .contact-form .form .btn button {
+            font-size: 30px;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+            transition: 0.8s;
+        }
+
+        .contact-form .form .btn button:hover {
+            background-color: rgb(0, 255, 0);
+            color: blue;
+            letter-spacing: 1px;
+            box-shadow: 0 0 30px rgb(143, 166, 234);
+        }
+
+        @media (max-width:1200px) {
+            .nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 90%;
+                margin: 20px auto;
+
+            }
+
+            .menu {
+                width: 60%;
+                height: 100%;
+                background-color: rgb(27, 28, 28);
+                position: fixed;
+                left: 100%;
+                /* display: none; */
+                /* left:40%; */
+                transition: transform 2s;
+                top: 0;
+            }
+
+            .menu ul {
+                margin-top: 12px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-start;
+                gap: 20px;
+                flex-direction: column;
+                height: 100%;
+                width: 100%;
+            }
+
+            .menu ul li {
+                width: 100%;
+            }
+
+            i {
+                font-size: 30px;
+                display: block;
+                color: white;
+
+            }
+
+            .menu ul li a {
+                text-decoration: none;
+                font-size: 25px;
+                padding: 8px 8px;
+                border-radius: 20px;
+                transition: 1.2s;
+                color: white;
+            }
+
+            .menu ul li a:hover {
+                box-shadow: 0 0 35px rgb(170, 170, 191);
+                background-color: rgb(155, 158, 158);
+                border: 1px solid white;
+            }
+
+            .phone-email {
+                display: flex;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                overflow: auto;
+            }
+
+            .add-map {
+                border: 2px solid greenyellow;
+                width: 100%;
+                min-height: 800px;
+            }
+
+            .add-map div {
+                width: 100%;
+                height: 50%;
+                border: 2px solid palevioletred;
+            }
+
+            .add-map p {
+                font-size: 25px;
+                text-align: center;
+                padding: 8px 0;
+            }
+
+            .add-map div img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+
+            /* Social media */
+            .social-media-info {
+                display: block;
+            }
+
+            .social-media-info div {
+                width: 100%;
+                /* background-color: rgba(0, 255, 255, 0.29); */
+                /* border: 2px solid forestgreen; */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+            }
+
+            .sm-option p {
+                cursor: pointer;
+            }
+
+            .contact-form .form {
+                border: 2px solid red;
+                margin: 20px auto;
+                width: 360px;
+                /* width: 700px; */
+                padding: 25px 0px;
+                border-radius: 20px;
+                box-shadow: 0px 0px 25px rgb(255, 3, 3);
+            }
+
+            .contact-form .form .row {
+                border: 2px solid rgb(0, 0, 0);
+                display: block;
+                /* justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: wrap; */
+                margin: 19px;
+                border-radius: 20px;
+                padding: 15px;
+            }
+
+            .contact-form .form .row div:nth-of-type(1) {
+                width: 100%;
+            }
+
+            .contact-form .form .row div:nth-of-type(2) {
+                width: 100%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="contact">
+        <nav>
+            <p>Sai Sawali Baal Pariwaar</p>
+            <i class="ri-menu-2-fill open"></i>
+            <div class="menu">
+                <i class="ri-close-circle-fill close"></i>
+                <ul>
+                    <li><a href="./index.html">HOME</a></li>
+                    <li><a href="./aboutUs.html">ABOUT US</a></li>
+                    <li><a href="./contactUs.html">CONTACT US</a></li>
+                    <li><a href="./helpUs.html">EMPOWER THE FUTURE</a></li>
+                    <li><a href="./gallary.html">GALLERY</a></li>
+
+                </ul>
+            </div>
+        </nav>
+      
+        <div class="head">
+            <p id="con-intro">
+                We’d love to hear from you! Whether you have questions, want to learn more about our work, or are
+                interested
+                in making a difference in the lives of the children at Sai Sawali Baal Pariwar, feel free to reach out
+                to
+                us. You can contact us through the form below, or use our phone or email details to get in touch
+                directly.
+            </p>
+        </div>
+        <hr>
+        <div class="con-medium general-inquiries" id="general-inq" data-aos="zoom-in-up">
+            <h3>General Inquiries:</h3>
+            <div class="phone-email">
+                <div>
+                    <p>Phone:
+                    <ul style="display: block;">
+                        <li>12345 67890</li>
+                        <li>98746 53210</li>
+                    </ul>
+                    </p>
+                </div>
+                <div>
+                    <p>Email:</p>
+                    <ul>
+                        <li>acsf78@gmail.com</li>
+                        <li>acs678@gmail.com</li>
+                        <li>asf678@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="con-medium visit-address" id="visit-add">
+            <h3>Visit Us:</h3>
+            <div class="add-map">
+                <div>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7510.091590798285!2d74.46481806561644!3d19.753208834606802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdc5b1ef1345eab%3A0x6f1695f82bc4d0b7!2sSai%20Sawali%20Bal%20Anathalaya!5e0!3m2!1sen!2sin!4v1730387225639!5m2!1sen!2sin"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div>
+                    <p>We welcome visitors who would like to meet the children, tour our facilities, or learn more about
+                        how
+                        we
+                        operate. Please contact us in advance to schedule your visit.</p>
+                    <p>
+                        Address:
+                        Sai Sawali Baal Pariwar
+                        [Your Address]
+                        [City, State, Zip Code]
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="con-medium social-medium" id="social-media" data-aos="zoom-in-down">
+            <h3>Follow Us on Social Media:</h3>
+            <div class="social-media-info">
+                <div>
+                    <p>
+                        Stay connected and follow our journey through our social media channels. Find regular updates,
+                        stories, and opportunities to get involved.
+                    </p>
+                </div>
+                <div class="iftplatform">
+                    <div class="sm-option">
+                        <img src="./ImageSlider/facebook.jpeg" alt="">
+                        <p>Facebook</p>
+                    </div>
+                    <div class="sm-option">
+                        <img src="./ImageSlider/instagram.jpg" alt="">
+                        <p>Instagram</p>
+                    </div>
+                    <div class="sm-option">
+                        <img src="./ImageSlider/twitterjpeg.jpeg" alt="">
+                        <p>Twitter</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="con-medium contact-form" id="con-form">
+            <h3>Contact Form:</h3>
+            <p>If you have any questions or would like to reach out to us, please fill out the form below and we will
+                get back to you as soon as possible.</p>
+            <div class="form">
+                <form action="http://localhost:8080/SaiSawaliBaalPriwaar/contactmessage" method="post">
+                    <div class="row">
+                        <div><label for="name">Name: </label></div>
+                        <div><input required type="text" name="username" id="name"></div>
+                    </div>
+                    <div class="row">
+                        <div><label for="email">Email: </label></div>
+                        <div><input required type="email" name="emailid" id="email"></div>
+                    </div>
+                    <div class="row">
+                        <div><label for="subject">Subject: </label></div>
+                        <div><input required type="text" name="subject" id="subject"></div>
+                    </div>
+                    <div class="row">
+                        <div><label for="message">Message: </label></div>
+                        <div><input required type="text" name="msg" id="message"></div>
+                    </div>
+                    <div class="btn">
+                        <button>Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Nav bar Responsiveness -->
+    <script>
+        let op = document.querySelector(".open");
+        let cls = document.querySelector(".close");
+        let m = document.querySelector(".menu");
+        op.addEventListener("click", () => {
+            m.style.transform = "translateX(-100%)";
+        })
+        cls.addEventListener("click", () => {
+            m.style.transform = "translate(0%,0%)";
+
+        })
+    </script>
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+       AOS.init({
+            offset: 200,
+            delay: 100,
+            duration: 1000
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Form</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .form {
+            width: 90%;
+            max-width: 600px;
+            min-height: 65%;
+            border-radius: 10px;
+            padding: 30px 20px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid #333;
+            background-color: rgb(248, 253, 253);
+        }
+
+        #title {
+            font-size: 28px;
+            text-align: center;
+            font-weight: 600;
+            color: #357ABD;
+            margin-bottom: 20px;
+        }
+
+        .row {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .row div {
+            font-size: 18px;
+        }
+
+        .row div input {
+            width: 100%;
+            font-size: 18px;
+            padding: 10px;
+            color: black;
+            border: 1px solid rgb(91, 13, 13);
+            border-radius: 5px;
+        }
+
+        #btn {
+            color: #fff;
+            background-color: rgb(11, 95, 11);
+            border: none;
+            font-weight: 600;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        @media (max-width: 600px) {
+            #title {
+                font-size: 22px;
+            }
+
+            .row div {
+                font-size: 16px;
+            }
+
+            .row div input {
+                font-size: 16px;
+            }
+
+            #btn {
+                font-size: 18px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <div id="title">Donation Form</div>
+        <form id="donation-form">
+            <div class="row">
+                <div><label for="username">Enter Your Name:</label></div>
+                <div><input type="text" name="username" id="username" required></div>
+            </div>
+            <div class="row">
+                <div><label for="useremail">Enter Email Address:</label></div>
+                <div><input type="email" name="useremail" id="useremail" required></div>
+            </div>
+            <div class="row">
+                <div><label for="userphone">Enter Phone Number:</label></div>
+                <div><input type="number" name="userphone" id="userphone" required></div>
+            </div>
+            <div class="row">
+                <div><label for="amount">Enter Donation Amount:</label></div>
+                <div><input type="number" name="amount" id="amount" required></div>
+            </div>
+            <!-- amount: <input type="number" name="amount" id="amount"> -->
+            <button id="btn" type="submit">Donate</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+
+        document.getElementById('donation-form').addEventListener("submit", (e) => {
+            e.preventDefault();
+            let amt = parseInt(document.getElementById("amount").value);
+            console.log(amt);
+            flag = 1;
+            $.ajax({
+                url: 'http://localhost:8080/SaiSawaliBaalPriwaar/donation',
+                data: { amount: amt },
+                type: "POST",
+                dataType: 'json',
+                success: function (response) {
+                    console.log(response);
+                    alert("Order...");
+
+                    if (response.status == "created") {
+                        let options = {
+                            "key": "rzp_test_hKNc8WZcyPZ6wA", // Enter the Key ID generated from the Dashboard
+                            "amount": response.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+                            "currency": "INR",
+                            "name": "Sai Sawali Baal Priwaar",
+                            "description": "Test Transaction",
+                            // "image": "./priye.jpg",
+                            "order_id": response.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+                            "handler": function (response) {
+                                console.log("Payment ID:", response.razorpay_payment_id);
+                                console.log("Order ID:", response.razorpay_order_id);
+                                console.log("Signature:", response.razorpay_signature);
+
+                                alert("🎉 Payment Successful! Redirecting to home page...");
+                                setTimeout(() => {
+                                    window.location.href = "http://127.0.0.1:5501/index.html";
+                                }, 2000); // 2-second delay before redirecting
+                            },
+                            "prefill": {
+                                "name": document.getElementById("username").value,
+                                "email": document.getElementById("useremail").value,
+                                "contact": document.getElementById("userphone").value
+                            },
+                            "notes": {
+                                "address": "Sai Sawali Baal Priwaar"
+                            },
+                            "theme": {
+                                "color": "#3999cc"
+                            }
+                        };
+
+                        var rzp1 = new Razorpay(options);
+                        rzp1.open();
+
+                        rzp1.on('payment.failed', function (response) {
+                            console.log(response.error.code);
+                            console.log(response.error.description);
+                            console.log(response.error.source);
+                            console.log(response.error.step);
+                            console.log(response.error.reason);
+                            console.log(response.error.metadata.order_id);
+                            console.log(response.error.metadata.payment_id);
+                            alert("Payment Failed...");
+                        });
+
+                    }
+                },
+                error: function (error) {
+                    console.log("error");
+                    console.log(error);
+                    alert("Something went wrong with order creation..");
+                }
+            })
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // fetch("http://localhost:8080/SaiSawaliBaalPriwaar/donation").then((e) => {
+        //     e.JSON().then((e) => {
+        //         console.log("data: " + e);
+        //     })
+        // })
+
+
+        // const amount = document.getElementById("amount").value;
+        //     document.querySelector("#dis").addEventListener("click",()=>{
+
+        //     fetch("http://localhost:8080/SaiSawaliBaalPriwaar/donation", {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json"
+        //         },
+        //         body: JSON.stringify({ amount: amount })
+        //     })
+        //         .then(response => response.json())
+        //         .then(data => {
+        //             console.log("Response from server:", data);
+        //             result = data;
+        //             alert("order processed successfully:" + data);
+        //         })
+        //         .catch(error => {
+        //             console.error("Error:", error);
+        //             alert("Something went wrong with the payment processing.");
+        //         });
+
+        //     }
+        // )
+
+
+
+        // let options = {
+        //     "key": "rzp_test_hKNc8WZcyPZ6wA", // Enter the Key ID generated from the Dashboard
+        //     "amount": "50000", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+        //     "currency": "INR",
+        //     "name": "Acme Corp",
+        //     "description": "Test Transaction",
+        //     "image": "./priye.jpg",
+        //     "order_id": "order_PHMEKU1RqOUqcG", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+        //     "handler": function (response) {
+        //         alert(response.razorpay_payment_id);
+        //         alert(response.razorpay_order_id);
+        //         alert(response.razorpay_signature)
+        //     },
+        //     "prefill": {
+        //         "name": "Gaurav Kumar",
+        //         "email": "gaurav.kumar@example.com",
+        //         "contact": "9000090000"
+        //     },
+        //     "notes": {
+        //         "address": "Sai Sawali Baal Priwaar"
+        //     },
+        //     "theme": {
+        //         "color": "#3999cc"
+        //     }
+        // };
+
+        // var rzp1 = new Razorpay(options);
+        // rzp1.open();
+
+        // rzp1.on('payment.failed', function (response) {
+        //     alert(response.error.code);
+        //     alert(response.error.description);
+        //     alert(response.error.source);
+        //     alert(response.error.step);
+        //     alert(response.error.reason);
+        //     alert(response.error.metadata.order_id);
+        //     alert(response.error.metadata.payment_id);
+        //     alert("Payment Failed...");
+        // });
+
+    </script>
+
+</body>
+
+</html>
