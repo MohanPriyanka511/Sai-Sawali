@@ -50,9 +50,6 @@ This project aims to give the orphanage a strong online presence where people ca
 - **Priyanka Mohan**  
   Email: [mohanpriyanka511@gmail.com](mailto:mohanpriyanka511@gmail.com)
   
-- **Aditya Londhe**  
-  Email: [londheaditya17@gmail.com](mailto:londheaditya17@gmail.com)
-
 ---
 
 > 💖 *Built with care to connect kind hearts with the children of Sai Sawali Baal Pariwar.*
